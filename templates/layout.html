@@ -1,12 +1,20 @@
 <!doctype html>
-<title>MIPSE</title>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-{% block body %}{% endblock %}
+<html>
+	<head>
+		<title>MIPSE</title>
+		<link rel='stylesheet' href="{{ url_for('static', filename='css/main.css') }}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+	</head>
+	<body>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+		{% endwith %}
+		{% block body %}{% endblock %}
+	</body>
+</html>
