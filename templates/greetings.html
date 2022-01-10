@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if name %}
+    <p>I see you have already been here {{ name }} </p>
+{% else %}
+    <p>I dont remember you </p>
+{% endif %}
+<br>
+Some other endpoints:<br>
+{{url_for('other_page')}}<br>
+{{url_for('show_id', id=1)}}<br>
+{% endblock %}
