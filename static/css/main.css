@@ -24,7 +24,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Style the search field */
 form input[type=text] {
   border: none;
   padding: 10px;
@@ -34,7 +33,6 @@ form input[type=text] {
   background: #f1f1f1;
 }
 
-/* Style the submit button */
 form button {
   border: none;
   float: left;
@@ -43,7 +41,6 @@ form button {
   background: #003049ff;
   color: white;
   font-size: 17px;
-  border-left: none; /* Prevent double borders */
   cursor: pointer;
 }
 
@@ -51,9 +48,13 @@ form button:hover {
   background: rgb(0, 70, 107);
 }
 
-/* Clear floats */
 form::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.results-area {
+  margin-top: 100px;
+  width: 1250px;
 }

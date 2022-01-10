@@ -1,11 +1,14 @@
-from flask import Flask, flash, url_for, render_template
+from flask import Flask, flash, url_for, render_template, request
 from markupsafe import escape
 
 # export FLASK_APP=app
 app = Flask('MIPSE')
-app.secret_key = "foobar"
+app.secret_key = 'foobar'
 
-@app.route('/')
-@app.route('/<query>')
-def hallo(query=None):
-	return render_template("main_page.html", name=query)
+@app.route('/', methods=['GET', 'POST'])
+def hallo():
+	if request.method == 'GET':
+		return render_template('main_page.html', query="")
+	elif request.method == 'POST':
+		query = request.form['query']
+		return render_template('main_page.html', query=query)

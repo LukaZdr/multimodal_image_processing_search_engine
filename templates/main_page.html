@@ -2,13 +2,15 @@
 {% block body %}
 	<div><img class='main-logo centered' src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></div>
 	<div class='search-area centered'>
-		<form>
-			<input class="searchbar" type="text" placeholder="Search..">
+		<form method = "post">
+			<input class="searchbar" type="text" name="query" placeholder="Search..">
 			<button type="submit"><i>Go!</i></button>
 		</from>
 	</div>
-	{% if query %}
-		<h1>Results for: "{{ query }}"</h1><br>
-		random images
-{% endif %}
+	{% if query != "" %}
+		<div class="results-area centered">
+			<h1> Results for: "{{ query }}" </h1>
+			
+		</div>
+	{% endif %}
 {% endblock %}
