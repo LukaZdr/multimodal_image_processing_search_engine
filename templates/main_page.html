@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+	<div><img class='main-logo' src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></div><br>
+	<div> Searchbar | button to submit | DatasetPicker </div><br>
+	{% if query %}
+		<h1>Results for: "{{ query }}"</h1><br>
+		random images
+{% endif %}
+{% endblock %}
