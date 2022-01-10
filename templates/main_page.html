@@ -10,7 +10,11 @@
 	{% if query != "" %}
 		<div class="results-area centered">
 			<h1> Results for: "{{ query }}" </h1>
-			
+			<div id="gallery">
+				{% for img in images %}
+					<img src="{{ img }}" alt="image">
+				{% endfor %}
+			</div>
 		</div>
 	{% endif %}
 {% endblock %}
