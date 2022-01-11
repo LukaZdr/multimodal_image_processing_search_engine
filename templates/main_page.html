@@ -12,7 +12,7 @@
 			<h1> Results for: "{{ query }}" </h1>
 			<div id="gallery">
 				{% for img in images %}
-					<img src="{{ img }}" alt="image">
+					<img src="{{ img[0] }}" alt="image">
 				{% endfor %}
 			</div>
 		</div>

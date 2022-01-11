@@ -1,2 +1,4 @@
 # ignore all logs
 __pycache__/*
+coco_dataset/*
+unsplash_dataset/*
