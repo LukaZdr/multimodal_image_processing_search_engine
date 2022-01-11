@@ -3,16 +3,22 @@
 	<div><img class='main-logo centered' src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></div>
 	<div class='search-area centered'>
 		<form method = "post">
-			<input class="searchbar" type="text" name="query" placeholder="Search..">
+			<input class="searchbar" type="text" name="query" placeholder="Search.." value="{{ query }}" >
 			<button type="submit"><i>Go!</i></button>
 		</from>
 	</div>
 	{% if query != "" %}
-		<div class="results-area centered">
+		<div class="results-area">
 			<h1> Results for: "{{ query }}" </h1>
 			<div id="gallery">
 				{% for img in images %}
-					<img src="{{ img[0] }}" alt="image">
+					<div>
+						<div class="card">
+							<img src="{{ img[0] }}" alt="image">
+							<h3>#{{ loop.index }}</h3>
+							<span> {{ img[1] }}</span>
+						</div>
+					</div>
 				{% endfor %}
 			</div>
 		</div>

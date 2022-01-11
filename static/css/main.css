@@ -23,6 +23,8 @@ body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 form input[type=text] {
@@ -56,22 +58,35 @@ form::after {
 }
 
 .results-area {
+  padding: 20px;
   margin-top: 100px;
-  width: 1300px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card > h3,
+.card > span {
+  margin: 10px;
+  bottom: 0;
 }
 
 #gallery {
-  line-height:0;
-  -webkit-column-count:5; /* split it into 5 columns */
-  -webkit-column-gap:5px; /* give it a 5px gap between columns */
-  -moz-column-count:5;
-  -moz-column-gap:5px;
-  column-count:5;
-  column-gap:5px;
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-#gallery img {
-  width: 100% !important;
-  height: auto !important;
-  margin-bottom:5px; /* to match column gap */
+@media screen and (max-width: 1000px) {
+  #gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+h1 {
+  margin-bottom: 20px;
 }
