@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import torch
 from transformers import CLIPProcessor, CLIPModel
-from IPython.display import Image as im #remove
 
 class SearchEngine:
 	def __init__(self, dataset):
@@ -23,6 +22,7 @@ class SearchEngine:
 			encoding = self.processor(text=query, return_tensors='pt', padding=True).to(self.device)
 			text_features = self.model.get_text_features(**encoding)
 			text_features /= text_features.norm(dim=-1, keepdim=True)
+
 		# Retrieve the description vector and the photo vectors
 		text_features = text_features.cpu().numpy()
 
@@ -32,7 +32,6 @@ class SearchEngine:
 
 		# Sort the photos by their similarity score
 		best_photos = sorted(zip(similarity_scores, range(self.photo_features.shape[0])), key=lambda x: x[0], reverse=True)
-
 		return best_photos[:image_count]
 
 
@@ -41,7 +40,6 @@ class SearchEngine:
 		photo_data = pd.read_csv(os.path.join(self.dataset_path, "photo_data.csv"), sep=',', header=0)
 
 		# Load the features and the corresponding IDs
-
 		results = self.compute_similarities(query, image_count)
 		# Iterate over the top n results
 		search_results = []
@@ -52,6 +50,7 @@ class SearchEngine:
 
 			# Get all metadata for this photo
 			photo_info = photo_data[photo_data["id"] == photo_id].iloc[0]
+
 			# Display the photo
 			if self.dataset == "unsplash_dataset":
 				url_arguments = "?w=640"
@@ -60,5 +59,4 @@ class SearchEngine:
 			url = photo_info["url"] + url_arguments
 			description = photo_info["description"]
 			search_results.append([url, description])
-
 		return search_results

@@ -5,9 +5,16 @@ from search_engine import SearchEngine
 # export FLASK_APP=app
 app = Flask('MIPSE')
 app.secret_key = 'foobar'
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # initiate the search engine class
-clip = SearchEngine('coco_dataset')
+coco_clip = SearchEngine('coco_dataset')
+unsplash_clip = SearchEngine('unsplash_dataset')
+
+search_engines = {
+	'coco': coco_clip,
+	'unsplash': unsplash_clip
+}
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -15,6 +22,8 @@ def main():
 		return render_template('main_page.html', query="")
 	elif request.method == 'POST':
 		query = request.form['query']
+		search_engine = 'unsplash'
+		image_count = 15
 		return render_template('main_page.html',
 													 query=query,
-													 images=clip.search(query, image_count=100))
+													 images=search_engines[search_engine].search(query, image_count=image_count))
