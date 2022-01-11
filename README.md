@@ -1,6 +1,12 @@
 # multimodal_image_processing_search_engine(WIP)
-A search engine that uses CLIP to make the content of images searchable. Used datasets are Unsplashed, Flikr and Coco.
+A image search engine that uses CLIP to make the content of images searchable. Used datasets are [Unsplashed](https://unsplash.com/data) and [Coco](https://cocodataset.org/).
 
-![image](https://user-images.githubusercontent.com/24440000/148828166-c7495380-ee23-4556-913e-03d725eb62dd.png)
+![2022-01-11_23-29-45_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/24440000/149031962-31965150-0ff5-4e9b-8225-2a07c4a65da9.gif)
 
-Next step connect backend functionality (still in Jupyter notebook)
+this example searches for "people dancing" in the coco dataset.
+
+## Setup
+TODO
+
+## Project struckture
+TODO
