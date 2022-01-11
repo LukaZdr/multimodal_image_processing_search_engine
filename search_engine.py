@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import torch
 from transformers import CLIPProcessor, CLIPModel
+import math
 
 class SearchEngine:
 	def __init__(self, dataset):
@@ -51,12 +52,15 @@ class SearchEngine:
 			# Get all metadata for this photo
 			photo_info = photo_data[photo_data["id"] == photo_id].iloc[0]
 
-			# Display the photo
 			if self.dataset == "unsplash_dataset":
 				url_arguments = "?w=640"
 			else:
 				url_arguments = ""
 			url = photo_info["url"] + url_arguments
 			description = photo_info["description"]
+
+			if type(photo_info["description"]) is not str:
+				description = 'description unavailable'
+
 			search_results.append([url, description])
 		return search_results
