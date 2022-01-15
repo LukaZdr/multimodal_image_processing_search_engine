@@ -22,8 +22,8 @@ def main():
 		return render_template('main_page.html', query="")
 	elif request.method == 'POST':
 		query = request.form['query']
-		search_engine = 'unsplash'
-		image_count = 15
+		search_engine = 'coco'
+		image_count = 50
 		return render_template('main_page.html',
 													 query=query,
 													 images=search_engines[search_engine].search(query, image_count=image_count))
