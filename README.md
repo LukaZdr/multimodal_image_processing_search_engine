@@ -7,9 +7,11 @@ A image search engine that uses CLIP to make the content of images searchable. U
 this example searches for "people dancing" in the coco dataset.
 
 ## Setup
-TODO
-- explain hot to download already preprocessed data
-- explain setup and preperation of data
+### If you wnat to download proprocessed data:
+download the already preprocesed dataset here https://cloud.mafiasi.de/s/tLEiMdXYpnEfZma. Unzip this zip file into the main dir of that directory.
+
+### If you want to build the dataset yourself:
+run both ipynb from bigining to end.
 
 ## Project struckture
 TODO
