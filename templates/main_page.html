@@ -2,10 +2,24 @@
 {% block body %}
 	<div><img class='main-logo centered' src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></div>
 	<div class='search-area centered'>
-		<form method = "post">
-			<input class="searchbar" type="text" name="query" placeholder="Search.." value="{{ query }}" >
+		<form method="post">
+            <input class="searchbar" type="text" name="query" placeholder="Search.." value="{{ query }}" >
 			<button type="submit"><i>Go!</i></button>
-		</from>
+            <div class="selection-area">
+                <span>Dataset:</span>
+                <select name="dataset">
+                    {% for engine in ["Coco", "Unsplash"] %}
+                        <option value="{{ engine }}" {{ 'selected' if engine == search_engine }}>{{ engine }}</option>
+				    {% endfor %}
+                </select>
+                <span>Result count:</span>
+                <select name="image_count">
+                    {% for i in [5, 10, 25, 50, 75, 100] %}
+                        <option value="{{ i }}" {{ 'selected' if i == image_count }}>{{ i }}</option>
+				    {% endfor %}
+                </select>
+            </div>
+		</form>
 	</div>
 	{% if query != "" %}
 		<div class="results-area">

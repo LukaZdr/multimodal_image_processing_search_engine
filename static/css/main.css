@@ -1,7 +1,7 @@
 body {
-	background-color: #24262c;
-	color: rgb(194, 194, 194);
-  font-family: cambria;
+  background-color: #24262c;
+  color: rgb(194, 194, 194);
+  font-family: cambria serif;
 }
 
 .centered {
@@ -18,7 +18,6 @@ body {
 .search-area {
   margin-top: 30px;
   width: 550px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -45,6 +44,11 @@ form button {
   color: white;
   font-size: 17px;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+form span {
+  padding: 6px;
 }
 
 form button:hover {
@@ -55,6 +59,31 @@ form::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.selection-area {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 30px;
+  font-size: 14px;
+  font-family: sans-serif;
+  outline: solid #808080 1px;
+}
+
+.selection-area > * {
+  background-color: #44464c;
+  height: 30px;
+  color: white;
+  border: none;
+}
+
+.selection-area > * {
+  width: 125px;
+}
+
+.selection-area > *:nth-child(2) {
+  border-right: solid #808080 1px;
 }
 
 .results-area {

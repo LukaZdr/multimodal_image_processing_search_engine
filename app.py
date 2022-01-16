@@ -12,8 +12,8 @@ coco_clip = SearchEngine('coco_dataset')
 unsplash_clip = SearchEngine('unsplash_dataset')
 
 search_engines = {
-	'coco': coco_clip,
-	'unsplash': unsplash_clip
+	'Coco': coco_clip,
+	'Unsplash': unsplash_clip
 }
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,8 +22,10 @@ def main():
 		return render_template('main_page.html', query="")
 	elif request.method == 'POST':
 		query = request.form['query']
-		search_engine = 'coco'
-		image_count = 50
+		search_engine = request.form['dataset']
+		image_count = int(request.form['image_count'])
 		return render_template('main_page.html',
-													 query=query,
-													 images=search_engines[search_engine].search(query, image_count=image_count))
+								query=query,
+								search_engine=search_engine,
+								images=search_engines[search_engine].search(query, image_count=image_count),
+								image_count=image_count)
