@@ -2,7 +2,7 @@ from flask import Flask, flash, url_for, render_template, request
 from markupsafe import escape
 from search_engine import SearchEngine
 
-# export FLASK_APP=app
+# export FLASK_APP=mipse
 app = Flask('MIPSE')
 app.secret_key = 'foobar'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
