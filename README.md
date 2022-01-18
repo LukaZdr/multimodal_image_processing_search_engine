@@ -1,8 +1,12 @@
-# Multimodal Image Processing Search Engine(WIP)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24440000/149975330-887e412e-9314-45e6-a404-05c1cb1ed537.png" width="50%">
+</p>
+
+
 A image search engine that uses CLIP to make the content of images searchable. Used datasets are [Unsplashed](https://unsplash.com/data) and [Coco](https://cocodataset.org/).
-
-![2022-01-18_16-54-41_AdobeCreativeCloudExpress (1)](https://user-images.githubusercontent.com/24440000/149972485-d53ea8fc-417e-41e3-897d-a5a8c682a766.gif)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24440000/149972485-d53ea8fc-417e-41e3-897d-a5a8c682a766.gif">
+</p>
 
 this example searches for "dogs in traffic" in the coco dataset.
 
