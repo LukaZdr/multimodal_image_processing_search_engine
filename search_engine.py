@@ -36,7 +36,7 @@ class SearchEngine:
 		return best_photos[:image_count]
 
 
-	def search(self, query, image_count = 10):
+	def search(self, query, image_count = 10, return_url=True):
 		# Read the photos table
 		photo_data = pd.read_csv(os.path.join(self.dataset_path, "photo_data.csv"), sep=',', header=0)
 
@@ -52,15 +52,17 @@ class SearchEngine:
 			# Get all metadata for this photo
 			photo_info = photo_data[photo_data["id"] == photo_id].iloc[0]
 
-			if self.dataset == "unsplash_dataset":
-				url_arguments = "?w=640"
-			else:
-				url_arguments = ""
-			url = photo_info["url"] + url_arguments
 			description = photo_info["description"]
-
 			if type(photo_info["description"]) is not str:
 				description = 'description unavailable'
 
-			search_results.append([url, description])
+			if return_url:
+				if self.dataset == "unsplash_dataset":
+					url_arguments = "?w=640"
+				else:
+					url_arguments = ""
+				url = photo_info["url"] + url_arguments
+				search_results.append([url, description])
+			else:
+				search_results.append(description)
 		return search_results

@@ -1,0 +1,86 @@
+{
+  "technologie": [
+    "ipod shuffle",
+    "nintendo wii",
+    "mobile phone",
+    "dj equipment",
+    "disco lighting",
+    "disassembled pc",
+    "green website",
+    "computer mouse",
+    "electric piano",
+    "multiple people looking at a television"
+  ],
+  "food_and_beverages": [
+    "fast food drinks",
+    "sushi plate",
+    "sandwich toast",
+    "pancakes with sirup",
+    "cake Ingredients",
+    "homemade apple pie",
+    "a warm cup of coffee",
+    "cooking over fire",
+    "hot dog bun",
+    "soup in a pot"
+  ],
+  "people_and_activities": [
+    "old person using a computer",
+    "child jumping in puddle",
+    "reunion at the airport",
+    "child walking a dog",
+    "eating candy",
+    "baking pancakes",
+    "riding a wave",
+    "filling up gas",
+    "child cutting paper",
+    "woman singing in choir"
+  ],
+  "nature": [
+    "sunny hills",
+    "a tall skyscraper",
+    "a house in the woods",
+    "waterfall in the woods",
+    "rainbow over the sea",
+    "train driving over a bridge",
+    "a boat on a lake",
+    "snow in the mountains",
+    "cliffs at the sea",
+    "volcanic eruption"
+  ],
+  "arts_and_crafts": [
+    "a wooden table with ornaments",
+    "origami flower",
+    "bullet journal",
+    "a gallery with colorful images",
+    "pottery cup",
+    "painting of fruits",
+    "greek bust",
+    "statue of a woman",
+    "graffiti on a train",
+    "photo of a photographer"
+  ],
+  "pets_animals": [
+    "dogs playing in a Park",
+    "a pigeon on a sign",
+    "bear rubbing his back on a tree",
+    "mouse eating",
+    "baby turtles on the beach",
+    "cat in a bowl",
+    "dog with a hat",
+    "a giraffe eating leaves",
+    "dog drinking water",
+    "fish underwater"
+  ],
+  "travel_destinations": [
+    "a beach at sunset",
+    "desert road",
+    "large hotel with pool",
+    "small pyramid in the desert",
+    "blue river between mountains",
+    "small huts next to a lake",
+    "valley with green and orange trees",
+    "sky with kites",
+    "rain in the city",
+    "tourists waiting at train station"
+  ]
+}
