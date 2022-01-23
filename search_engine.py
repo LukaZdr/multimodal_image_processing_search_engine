@@ -17,31 +17,39 @@ class SearchEngine:
 		self.photo_ids = pd.read_csv(os.path.join(self.dataset_path, "photo_ids.csv"))
 		self.photo_ids = list(self.photo_ids['photo_id'])
 
-	def compute_similarities(self, query, image_count):
+	def compute_similarities(self, query, image_count, comparison_func):
 		with torch.no_grad():
 			# Encode and normalize the description using CLIP
 			encoding = self.processor(text=query, return_tensors='pt', padding=True).to(self.device)
 			text_features = self.model.get_text_features(**encoding)
-			text_features /= text_features.norm(dim=-1, keepdim=True)
+			if comparison_func == "cosine":
+				text_features /= text_features.norm(dim=-1, keepdim=True)
 
 		# Retrieve the description vector and the photo vectors
 		text_features = text_features.cpu().numpy()
 
 		similarity_scores = []
 		for i, feature in enumerate(self.photo_features):
-			similarity_scores.append((text_features @ feature.T).item())
+			if comparison_func == "cosine":
+				similarity_scores.append((text_features @ feature.T).item())
+			elif comparison_func == "euclidean":
+				similarity_scores.append(np.linalg.norm(text_features - feature))
 
 		# Sort the photos by their similarity score
-		best_photos = sorted(zip(similarity_scores, range(self.photo_features.shape[0])), key=lambda x: x[0], reverse=True)
+		if comparison_func == "cosine":
+			best_photos = sorted(zip(similarity_scores, range(self.photo_features.shape[0])), key=lambda x: x[0], reverse=True)
+		elif comparison_func == "euclidean":
+			best_photos = sorted(zip(similarity_scores, range(self.photo_features.shape[0])), key=lambda x: x[0],
+								 reverse=False)
 		return best_photos[:image_count]
 
 
-	def search(self, query, image_count = 10, return_url=True):
+	def search(self, query, image_count = 10, return_url=True, comparison_func="cosine"):
 		# Read the photos table
 		photo_data = pd.read_csv(os.path.join(self.dataset_path, "photo_data.csv"), sep=',', header=0)
 
 		# Load the features and the corresponding IDs
-		results = self.compute_similarities(query, image_count)
+		results = self.compute_similarities(query, image_count, comparison_func)
 		# Iterate over the top n results
 		search_results = []
 		for i in range(image_count):
