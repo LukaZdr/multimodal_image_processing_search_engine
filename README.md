@@ -3,23 +3,24 @@
 </p>
 
 
-A image search engine that uses CLIP to make the content of images searchable. Used datasets are [Unsplashed](https://unsplash.com/data) and [Coco](https://cocodataset.org/).
+An image search engine that uses CLIP to make the content of images searchable. Used datasets are [Unsplashed](https://unsplash.com/data) and [Coco](https://cocodataset.org/).
 <p align="center">
   <img src="https://user-images.githubusercontent.com/24440000/149972485-d53ea8fc-417e-41e3-897d-a5a8c682a766.gif">
 </p>
 
-this example searches for "dogs in traffic" in the coco dataset.
+This example searches for "dog in traffic" in the coco dataset.
 
 ## Setup
-### If you wnat to download proprocessed data:
-Download the already preprocesed dataset here https://cloud.mafiasi.de/s/tLEiMdXYpnEfZma.
+### If you want to download preprocessed data:
+Download the already preprocessed dataset here https://cloud.mafiasi.de/s/tLEiMdXYpnEfZma.
 
-Unzip this zip file into the main dir of that directory. The repo should now look like the one shown under "Project struckture".
+Unzip this zip file into the main dir of that directory. The repo should now look like the one shown under "Project structure".
 
 ### If you want to build the dataset yourself:
-run both ipynb from bigining to end. This may take quie some time as the coco dataset alone is over 25GB in size. After completly running both notebooks however your resulting Repo should look like the one shown in "Project struckture".
+Run both ipynb from beginning to end. This may take some time as the coco dataset alone is over 25GB in size.
+However, after completely running both notebooks your resulting Repo should look like the one shown in "Project structure".
 
-### Runing the app
+### Running the app
 To run the app first follow the instructions listed in the setup.
 
 Afterwards run:
@@ -28,7 +29,7 @@ export FLASK_APP=mipse
 flask run
 ```
 
-## Project struckture
+## Project structure
 ```
 ├── README.md
 ├── coco_dataset
@@ -36,6 +37,7 @@ flask run
 │   ├── photo_data.csv
 │   └── photo_ids.csv
 ├── coco_dataset_preperation.ipynb
+├── Evaluation.ipynb
 ├── mipse.py
 ├── search_engine.py
 ├── static
